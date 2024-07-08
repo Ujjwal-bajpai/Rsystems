@@ -9,6 +9,11 @@ namespace Logic.ILogics
 {
     public interface IContactLogic
     {
-        Task<Contact> GetContacts();
+        Task<List<Contact>> GetContacts();
+
+        Task<Contact> AddContact(Contact contact);
+        Task<Contact> UpdateContact(Contact contact);
+
+        Task<bool> RemoveContact(int id);
     }
 }

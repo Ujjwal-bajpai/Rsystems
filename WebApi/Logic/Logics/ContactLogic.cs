@@ -16,9 +16,25 @@ namespace Logic.Logics
         {
             _contactRepository = contactRepository;
         }
-        public async Task<Contact> GetContacts()
+
+        public async Task<Contact> AddContact(Contact contact)
+        {
+            return await _contactRepository.AddContact(contact);
+        }
+
+        public async Task<List<Contact>> GetContacts()
         {
             return await _contactRepository.GetContacts();
+        }
+
+        public Task<bool> RemoveContact(int id)
+        {
+            return _contactRepository.RemoveContact(id);
+        }
+
+        public async Task<Contact> UpdateContact(Contact contact)
+        {
+           return await _contactRepository.UpdateContact(contact);
         }
     }
 }

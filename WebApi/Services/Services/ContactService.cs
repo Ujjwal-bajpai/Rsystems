@@ -17,9 +17,25 @@ namespace Services.Services
         {
             _contactLogic = contactLogic;
         }
-        public async Task<Contact> GetContacts()
+
+        public async Task<Contact> AddContact(Contact contact)
+        {
+            return await _contactLogic.AddContact(contact);
+        }
+
+        public async Task<List<Contact>> GetContacts()
         {
             return await _contactLogic.GetContacts();
+        }
+
+        public Task<bool> RemoveContact(int id)
+        {
+            return _contactLogic.RemoveContact(id);
+        }
+
+        public Task<Contact> UpdateContact(Contact contact)
+        {
+            return _contactLogic.UpdateContact(contact);
         }
     }
 }
